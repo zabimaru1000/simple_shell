@@ -6,14 +6,21 @@
 #include <string.h>
 #include <stdarg.h>
 #include <stdlib.h>
-
-typedef struct cmd_t {
+/**
+ * struct cmd_t - structure for builtins
+ * @string: string to compare
+ * @function: pointer to builtin function
+ */
+typedef struct cmd_t
+{
 	char *string;
 	void (*function)(char *line);
 } builtin;
-void prompt();
+void prompt(void);
 char *readline();
 void builtincheck(char *line);
+void get_exit(char *line);
+void get_env(char *line);
 char **parser(char *);
 
 #endif
