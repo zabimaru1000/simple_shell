@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void _exit()
+void getexit()
 {
 	exit(0);
 }
