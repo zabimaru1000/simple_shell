@@ -1,10 +1,17 @@
 #include "shell.h"
 
-void readline()
+char readline()
 {
-        char *line;
-        size_t size = 1024;
+        char *line = NULL;
+        size_t size;
 
-        line = malloc(sizeof(char *) * size);
-        getline(&line, &size, stdin);
+
+        if (getline(&line, &size, stdin) == -1)
+	{
+		free(line);
+		return (NULL);
+	}
+
+	checkbuiltin(line);
+	return (line);
 }
