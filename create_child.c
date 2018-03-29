@@ -11,9 +11,9 @@ int create_child(char **av)
 	char **envp = NULL;
 	int check;
 
-	pid = fork(); // create child process
+	pid = fork(); /* create child process */
 
-	if (pid == 0) //child process returns 0
+	if (pid == 0) /*child process returns 0*/
 	{
 		if ((execve(av[0], av[1], envp) == -1))
 		{
@@ -28,13 +28,13 @@ int create_child(char **av)
 		}
 
 		else
-			//If true, loop when not killed/exited
+			/* If true, loop when not killed/exited */
 			while (!WIFEXITED(check) && !WIFSIGNALED(check))
 			{
-				//3rd option return if child stopped.
+				/* 3rd option return if child stopped. */
 				child_succ = wait(pid, &status, WUNTRACED);
 			}
 	}
 
-	return (1) // go back to prompt();
+	return (1); /* go back to prompt() */
 }
