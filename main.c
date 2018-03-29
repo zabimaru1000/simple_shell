@@ -17,10 +17,10 @@ int main(int argc, char *argv[])
                 line = readline(); /* calls get line */
 		if (line == NULL)
 			return (-1);
-        }
-	token_array = parse_line(line);
-	if (token_array == NULL)
-		return (-1);
-	run_cmd(token_array);
+        	token_array = parse_line(line);
+		if (token_array == NULL)
+			return (-1);
+		run_cmd(token_array);
+	}
         return (0);
 }
