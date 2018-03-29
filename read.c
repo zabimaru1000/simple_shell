@@ -1,6 +1,6 @@
 #include "shell.h"
 
-char readline()
+char *readline()
 {
         char *line = NULL;
         size_t size;
@@ -8,10 +8,10 @@ char readline()
 
         if (getline(&line, &size, stdin) == -1)
 	{
+		write(1, "\n", 1);
 		free(line);
 		return (NULL);
 	}
-
-	checkbuiltin(line);
+	builtincheck(line);
 	return (line);
 }
