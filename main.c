@@ -1,12 +1,22 @@
 #include "shell.h"
 
-int main(void)
+/**
+ * main - Main function
+ * Description - Infinitely loops the following functions.
+ *
+ * Return: 0 (Success);
+ */
+int main(int ac __attribute__((unused)), char **av)
 {
-        while (1)
-        {
-                prompt();
-                readline();
-        }
+	char *line;
 
-        return (0);
+	while (1)
+	{
+		prompt();
+		readline();
+		parser(line);
+		create_child(av);
+	}
+
+	return (0);
 }
