@@ -1,0 +1,25 @@
+.TH BKASH(1) "28 Mar 2018" "1.0"
+.SH NAME
+
+.B bkash - GNU Brian-Kevan Active SHell (bkash)
+
+.SH SYNOPSIS
+#include "shell.h"
+
+ bkash$ [COMMAND/BUILT-IN] [ARGUMENT]...
+
+.SH DESCRIPTION
+Linux Command Line interface that takes user input and interprets the input as a
+command or built-in feature to be executed.
+
+Avaliable features for commands and built-ins:
+
+exit - Terminates bkash shell
+
+env - Print the current environment
+
+.SH RETURN VALUE
+Upon sucessful return, the value is zero.
+
+.SH AUTHORS
+Collaboration by Brian Chew and Kevan Lucchini
