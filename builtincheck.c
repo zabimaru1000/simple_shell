@@ -20,4 +20,5 @@ void builtincheck(char *line)
 			builtinexe[pos].function(line);
 		pos++;
 	}
+	printf("test\n");
 }

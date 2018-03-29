@@ -27,6 +27,6 @@ void get_env(char *line);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
-char *parse_line(char *line);
+char **parse_line(char *line);
 int run_cmd(char **token_array);
 #endif

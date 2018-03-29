@@ -1,19 +1,32 @@
-int run_cmd(char **aray)
+#include "shell.h"
+
+int run_cmd(char **token_array)
 {
-	int status;
+	int check;
 	pid_t pid;
 
 	pid = fork();
-	if (child_pid == -1) /* if fork failed */
+
+        if (pid == -1) /* if fork failed */
 	{
-		perror("run_cmd");
+                perror("Fork failed");
 		return (-1);
-	}
-	if (pid == 0) /* if child */
+        }
+
+	else if (pid == 0)
 	{
-		execve(array[0], array, NULL);
+		if ((execve(token_array[0], token_array, NULL) == -1))
+		{
+			perror("run_cmd");
+		}
 	}
-	else /* if parent */
-		wait(&status);
-	return (0);
+
+	else
+	{
+		do {
+			/* 3rd option return if child stopped. */
+			pid = waitpid(pid, &check, WUNTRACED);
+		} while (!WIFEXITED(check) && !WIFSIGNALED(check));
+	}
+	return (1);
 }

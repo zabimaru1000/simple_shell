@@ -5,7 +5,7 @@
  * and creates a pointer to an array of said strings
  * @
  */
-char *parse_line(char *line)
+char **parse_line(char *line)
 {
 	int count, i;
 	char *token = NULL;
@@ -18,14 +18,14 @@ char *parse_line(char *line)
 		free(line);
 		return (NULL);
 	}
-	token = strtok(string, DELIM); /* tokenize the first argument */
+	token = strtok(copy, DELIM); /* tokenize the first argument */
 	for (count = 0; token != NULL; count++)
 		token = strtok(NULL, DELIM); /* tokenize each arguement until null byte */
 	free(copy); /* don't need copy anymore */
 	token_array = malloc(sizeof(char *) * (count + 1)); /* one extra for the first arg */
 	if (token_array == NULL)
 	{
-		free(buffer);
+		free(line);
 		return (NULL);
 	}
 	token = NULL; /* reset token */

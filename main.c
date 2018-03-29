@@ -5,21 +5,29 @@
  * @argv: Pointer to array of string pointers
  * Return: 0 (Success), -1 (Failure)
  */
-int main(int argc, char *argv[])
+int main(int __attribute__((unused)) argc, char __attribute__((unused)) **argv)
 {
-	char *line; /* buffer the shell uses to read the input from stdin */
-        char **token_array;
-	void(argc);
+	char *line;
+	char **token_array;
 
 	while (1)
         {
                 prompt();
+
                 line = readline(); /* calls get line */
+
 		if (line == NULL)
-			return (-1);
+		{
+			continue;
+		}
+
 		token_array = parse_line(line);
-		if (token_array == NULL)
-			return (-1);
+
+		if (argv == NULL)
+		{
+			continue;
+		}
+
 		run_cmd(token_array);
 	}
         return (0);
