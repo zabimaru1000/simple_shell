@@ -21,6 +21,6 @@ char *readline();
 void builtincheck(char *line);
 void get_exit(char *line);
 void get_env(char *line);
+int _strlen(char *s);
 char **parser(char *);
-
 #endif
