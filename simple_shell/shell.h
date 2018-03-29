@@ -7,7 +7,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-struct cmd_t {
+typedef struct cmd_t {
 	{"exit", getexit()},
 	{"env", getenv()},
 	{NULL, NULL};
