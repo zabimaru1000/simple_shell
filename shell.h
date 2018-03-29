@@ -8,15 +8,12 @@
 #include <stdlib.h>
 
 typedef struct cmd_t {
-	{"exit", getexit()},
-	{"env", getenv()},
-	{NULL, NULL};
-}; get_t
-
-
-
+	char *string;
+	void (*function)(char *line);
+} builtin;
 void prompt();
-void readline();
+char *readline();
+void builtincheck(char *line);
 char **parser(char *);
 
 #endif
