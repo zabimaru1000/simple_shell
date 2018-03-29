@@ -36,10 +36,12 @@ $ ./hsh
 $ ./hsh
 $ bkash$ exit
 $
+//The program terminates and goes back into the bash shell.
 
 ```
 
 ## Authors
 
 [Brian Chew](https://github.com/zabimaru1000)
+
 [Kevan Lucchini](https//github.com/kevanlucc)
