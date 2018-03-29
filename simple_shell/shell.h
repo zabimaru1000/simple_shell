@@ -7,11 +7,13 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-struct arg_t {
-        char *arg_name;
-        int ac;
-        char *av[64];
-};
+struct cmd_t {
+	{"exit", getexit()},
+	{"env", getenv()},
+	{NULL, NULL};
+}; get_t
+
+
 
 void prompt();
 void readline();
