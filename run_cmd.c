@@ -26,7 +26,7 @@ int run_cmd(char **token_array)
 		do {
 			/* 3rd option return if child stopped. */
 			pid = waitpid(pid, &check, WUNTRACED);
-		} while (!WIFEXITED(check) && !WIFSIGNALED(check));
+		} while(!WIFEXITED(check) && !WIFSIGNALED(check));
 	}
 	return (1);
 }

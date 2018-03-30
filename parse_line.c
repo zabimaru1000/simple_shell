@@ -12,12 +12,13 @@ char **parse_line(char *line)
 	char *copy = NULL;
 	char **token_array;
 
-	copy = _strdup(line); /* copy the string */
-	if (copy == NULL) /* if strdup failed */
+	copy = _strdup(line);
+	if (copy == NULL)
 	{
 		free(line);
 		return (NULL);
 	}
+
 	token = strtok(copy, DELIM); /* tokenize the first argument */
 	for (count = 0; token != NULL; count++)
 		token = strtok(NULL, DELIM); /* tokenize each arguement until null byte */

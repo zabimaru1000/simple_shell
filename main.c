@@ -18,14 +18,14 @@ int main(int __attribute__((unused)) argc, char __attribute__((unused)) **argv)
 
 		if (line == NULL)
 		{
-			continue;
+			return(-1);
 		}
 
 		token_array = parse_line(line);
 
-		if (argv == NULL)
+		if (token_array == NULL)
 		{
-			continue;
+			return (-1);
 		}
 
 		run_cmd(token_array);
