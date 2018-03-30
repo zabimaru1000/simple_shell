@@ -8,17 +8,18 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+#include <signal.h>
 /**
  * struct cmd_t - structure for builtins
  * @string: string to compare
  * @function: pointer to builtin function
  */
-extern char **environ;
 typedef struct cmd_t
 {
 	char *string;
 	void (*function)(char *line);
 } builtin;
+extern char **environ;
 void prompt(void);
 char *readline();
 void builtincheck(char *line);
@@ -29,4 +30,6 @@ int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 char **parse_line(char *line);
 int run_cmd(char **token_array);
+typedef void (*sighandler_t)(int);
+sighandler_t signal(int signum, sighandler_t handler);
 #endif

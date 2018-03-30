@@ -1,9 +1,11 @@
 #include "shell.h"
 /**
  * parse_line - parses and tokenizes a string
- * Description: This function analyzes a string, tokenizes it in separate strings,
+ * Description: This function analyzes a string,
+ * tokenizes it in separate strings,
  * and creates a pointer to an array of said strings
- * @
+ * @line: buffer to parse
+ * Return: tokenized buffer, or NULL if failed
  */
 char **parse_line(char *line)
 {
@@ -22,7 +24,8 @@ char **parse_line(char *line)
 	for (count = 0; token != NULL; count++)
 		token = strtok(NULL, DELIM); /* tokenize each arguement until null byte */
 	free(copy); /* don't need copy anymore */
-	token_array = malloc(sizeof(char *) * (count + 1)); /* one extra for the first arg */
+	count++;
+	token_array = malloc(sizeof(char *) * (count));
 	if (token_array == NULL)
 	{
 		free(line);
